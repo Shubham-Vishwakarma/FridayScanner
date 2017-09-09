@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -31,7 +30,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder viewHolder, int i) {
-        viewHolder.title.setText(galleryList.get(i).getImage_title());
         viewHolder.img.setScaleType(ImageView.ScaleType.CENTER_CROP);
         viewHolder.img.setImageResource((galleryList.get(i).getImage_ID()));
     }
@@ -41,13 +39,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return galleryList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView title;
+    class ViewHolder extends RecyclerView.ViewHolder{
         private ImageView img;
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
-
-            title = (TextView)view.findViewById(R.id.title);
             img = (ImageView) view.findViewById(R.id.imgView);
         }
     }
